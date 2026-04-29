@@ -1,0 +1,41 @@
+{
+  "name": "fate-market",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Fate Market MVP core for AI event discovery, binary prediction markets, trading, custody ledger, and settlement.",
+  "type": "module",
+  "main": "./dist/src/index.js",
+  "types": "./dist/src/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/src/index.d.ts",
+      "import": "./dist/src/index.js"
+    }
+  },
+  "files": [
+    "dist",
+    "assets",
+    "public",
+    "README.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "test": "node --import tsx --test tests/**/*.test.ts"
+  },
+  "keywords": [
+    "fate-market",
+    "prediction-market",
+    "solana",
+    "ai",
+    "yes-no",
+    "mvp"
+  ],
+  "license": "MIT",
+  "devDependencies": {
+    "@types/node": "^22.15.3",
+    "tsx": "^4.21.0",
+    "typescript": "^5.8.3"
+  }
+}
