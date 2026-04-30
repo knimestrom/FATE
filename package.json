@@ -17,6 +17,7 @@
     "assets",
     "public",
     "README.md",
+    "CHANGELOG.md",
     "LICENSE"
   ],
   "scripts": {

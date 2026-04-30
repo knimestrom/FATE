@@ -24,6 +24,7 @@ Fate Market is an AI event prediction market for Solana. Users trade YES and NO 
 - [Scripts](#scripts)
 - [Brand Assets](#brand-assets)
 - [Project Progress](#project-progress)
+- [Recent Updates](#recent-updates)
 - [Roadmap](#roadmap)
 - [FAQ](#faq)
 - [License](#license)
@@ -43,7 +44,7 @@ The current codebase implements the MVP protocol core in TypeScript. It exposes 
 | Resource | Link |
 | --- | --- |
 | Website | https://www.fatemarket.fun/ |
-| X / Twitter |  |
+| X / Twitter | https://x.com/Fate_Market |
 | GitHub Repository | https://github.com/knimestrom/FATE.git |
 
 ## Project Highlights
@@ -388,7 +389,7 @@ npm test
 | Ticker | `$FATE` |
 | Network | Solana |
 | Website | https://www.fatemarket.fun/ |
-| X / Twitter |  |
+| X / Twitter | https://x.com/Fate_Market |
 | GitHub Repository | https://github.com/knimestrom/FATE.git |
 
 | Asset | Path |
@@ -427,6 +428,26 @@ The same asset paths are exported by `fateMarketBrand`.
 - Frontend trading interface integration.
 - Persistent storage for markets, trades, accounts, and resolutions.
 - Resolver operations and evidence review workflow.
+
+## Recent Updates
+
+### 2026-04-30
+
+- Published the official Fate Market X channel across README project links, brand metadata, and repository documentation.
+- Added a changelog so protocol, brand, and integration updates can be tracked in a standard GitHub-friendly format.
+- Refined repository presentation around the active MVP workstreams: AI event intelligence, market lifecycle, Solana execution, and settlement operations.
+
+### 2026-04-29
+
+- Bundled the Fate Market logo and favicon into both package assets and public web aliases.
+- Expanded README coverage for architecture, module responsibilities, protocol flow, installation, configuration, usage, roadmap, FAQ, and brand assets.
+- Validated the full prediction-market lifecycle through deterministic protocol tests.
+
+### 2026-04-28
+
+- Finalized the first-principles MVP boundary around event discovery, YES / NO trading, locked-market settlement, redemption, and portfolio valuation.
+- Defined the Solana instruction boundary for open, buy, sell, resolve, and redeem actions.
+- Organized the protocol modules so frontend apps, indexers, and Solana clients can consume the same core package.
 
 ## Roadmap
 

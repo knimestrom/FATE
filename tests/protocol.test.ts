@@ -25,6 +25,7 @@ import {
 test("Fate Market brand assets are bundled with the protocol package", () => {
   assert.equal(fateMarketBrand.name, "Fate Market");
   assert.equal(fateMarketBrand.ticker, "$FATE");
+  assert.equal(fateMarketBrand.socials.x, "https://x.com/Fate_Market");
   assert.equal(fateMarketBrand.assets.logo, "assets/brand/fate-market-logo.png");
   assert.ok(existsSync(fateMarketBrand.assets.logo));
   assert.ok(existsSync(fateMarketBrand.assets.favicon));
