@@ -4,42 +4,9 @@
 
 Trade the future. Price reality on Solana.
 
-![Fate Market logo](./assets/brand/fate-market-logo.png)
+Fate Market is an AI-native prediction market platform on Solana. It turns future events into tradable probability markets where users can take YES or NO positions, read AI-assisted market intelligence, and follow how market prices express live expectations about reality.
 
-Fate Market is an AI event prediction market for Solana. Users trade YES and NO outcome shares around future events. Market prices express live probability, AI turns information into structured market intelligence, and the protocol core maintains event discovery, market creation, trading, custody accounting, settlement, and redemption state.
-
-## Table of Contents
-
-- [Overview](#overview)
-- [Project Links](#project-links)
-- [Project Highlights](#project-highlights)
-- [First Principles](#first-principles)
-- [Technical Architecture](#technical-architecture)
-- [Core Modules](#core-modules)
-- [Protocol Flow](#protocol-flow)
-- [Repository Structure](#repository-structure)
-- [Installation](#installation)
-- [Configuration](#configuration)
-- [Usage](#usage)
-- [Scripts](#scripts)
-- [Brand Assets](#brand-assets)
-- [Project Progress](#project-progress)
-- [Recent Updates](#recent-updates)
-- [Roadmap](#roadmap)
-- [FAQ](#faq)
-- [License](#license)
-
-## Overview
-
-Fate Market converts real-world information into tradable event markets. The protocol follows a clear loop:
-
-```text
-signals -> event candidates -> AI market intelligence -> YES / NO market -> trades -> locked market -> evidence -> settlement -> redemption
-```
-
-The current codebase implements the MVP protocol core in TypeScript. It exposes deterministic modules for event discovery, AI market drafting, binary pricing, account ledgers, open position exits, close-time locking, portfolio valuation, resolution evidence, redemption, and Solana instruction construction.
-
-## Project Links
+## Official Links
 
 | Resource | Link |
 | --- | --- |
@@ -47,531 +14,167 @@ The current codebase implements the MVP protocol core in TypeScript. It exposes 
 | X / Twitter | https://x.com/Fate_Market |
 | GitHub Repository | https://github.com/knimestrom/FATE.git |
 
-## Project Highlights
+## What Fate Market Does
 
-- AI-driven event candidate discovery from structured signals.
-- Binary YES / NO market drafting with probability, catalysts, risk notes, and thesis generation.
-- Constant-product style binary pool for outcome share pricing.
-- Buy and sell execution for active markets.
-- Collateral ledger with positions, trade history, and fee accounting.
-- Portfolio valuation against current market prices.
-- Close-time market locking.
-- Evidence-based YES, NO, and VOID settlement.
-- Redemption logic for winning or voided shares.
-- Solana instruction builders for open, buy, sell, resolve, and redeem actions.
-- Bundled Fate Market logo, favicon, and brand metadata.
-- Deterministic test coverage for the protocol lifecycle.
+Fate Market is built around a simple idea: the future should have a market price.
 
-## First Principles
+Instead of treating news, rumors, catalysts, and public expectations as disconnected information streams, Fate Market organizes them into event markets. Each market asks a clear binary question, such as whether a specific future event will happen by a defined deadline. Traders buy YES or NO outcome exposure, and the market price becomes a live probability signal.
 
-A prediction market is not just a market card. A working event market needs:
+AI helps users understand the market. Solana provides the settlement environment. The result is a prediction platform designed for speed, transparency, and probability-based decision making.
 
-1. A future event with a precise resolution condition.
-2. Two mutually exclusive outcome claims.
-3. Collateral bound to those claims.
-4. A pricing function that changes as traders take risk.
-5. A position ledger that protects account balances.
-6. A close-time rule that stops new trades before resolution.
-7. Evidence that maps the event outcome to settlement.
-8. A redemption path that pays the winning side.
+## Core Platform Features
 
-Fate Market builds the MVP from those primitives first. Frontend surfaces, AI providers, indexers, and Solana adapters can consume the same protocol modules without changing the market model.
+### AI Event Discovery
 
-## Technical Architecture
+Fate Market monitors fast-moving information streams and identifies events that are suitable for prediction markets. The AI layer helps transform raw signals into market candidates with clear questions, categories, deadlines, and resolution logic.
 
-### Stack
+### YES / NO Prediction Markets
 
-- Runtime: Node.js
-- Language: TypeScript
-- Module system: ESM
-- Test runner: Node.js built-in test runner
-- Type execution for tests: `tsx`
-- Build output: `dist`
-- Brand assets: PNG logo and favicon
+Each market is structured around two mutually exclusive outcomes: YES and NO. Users can express a view by taking either side, and market prices communicate the probability currently implied by trading activity.
 
-### Architecture Layers
+### AI Market Intelligence
 
-```mermaid
-flowchart TD
-    A["Signal Layer"] --> B["Event Discovery"]
-    B --> C["AI Market Intelligence"]
-    C --> D["Market Factory"]
-    D --> E["Binary Pricing Pool"]
-    E --> F["Collateral Ledger"]
-    F --> G["Portfolio Valuation"]
-    F --> H["Solana Instruction Boundary"]
-    D --> I["Close-Time Locking"]
-    I --> J["Evidence Settlement"]
-    J --> K["Redemption"]
-```
+Fate Market presents structured market intelligence around each event, including:
 
-### State Model
+- market summary
+- YES-side thesis
+- NO-side thesis
+- key catalysts
+- risk notes
+- probability context
+- information updates
 
-```mermaid
-stateDiagram-v2
-    [*] --> drafted
-    drafted --> open
-    open --> locked
-    locked --> resolved
-    locked --> voided
-    open --> resolved
-    open --> voided
-    resolved --> [*]
-    voided --> [*]
-```
+The goal is to make every market easier to understand before users take a position.
 
-### Data Flow
+### Solana-Native Market Layer
 
-```mermaid
-sequenceDiagram
-    participant Signal as Signal Source
-    participant AI as AI Intelligence
-    participant Market as Market Core
-    participant Ledger as Ledger
-    participant Resolver as Resolver
-    participant User as Trader
+Fate Market is designed for Solana-native trading, custody, and settlement flows. Solana gives the platform a high-speed environment for prediction markets, transparent market activity, and efficient user interaction.
 
-    Signal->>AI: Structured event signals
-    AI->>Market: Candidate and market draft
-    Market->>Ledger: Open market with initial liquidity
-    User->>Ledger: Buy YES or NO shares
-    User->>Ledger: Sell shares before close
-    Market->>Market: Lock after close time
-    Resolver->>Market: Submit outcome evidence
-    Market->>Ledger: Resolve market
-    User->>Ledger: Redeem settled position
-```
+### Position and Portfolio Experience
 
-## Core Modules
+Users can track open positions, market exposure, estimated probability, and settlement status across their prediction market activity.
 
-| Module | Purpose |
-| --- | --- |
-| `src/core/brand.ts` | Exposes Fate Market brand metadata and bundled asset paths. |
-| `src/core/types.ts` | Defines protocol types for events, markets, trades, ledgers, portfolios, and settlement. |
-| `src/core/events.ts` | Discovers event candidates from structured signal inputs. |
-| `src/core/ai.ts` | Creates market questions, probability estimates, YES thesis, NO thesis, catalysts, and risk notes. |
-| `src/core/pricing.ts` | Quotes and applies YES / NO buy and sell actions. |
-| `src/core/ledger.ts` | Maintains accounts, collateral, positions, trade history, fees, exits, and redemption. |
-| `src/core/markets.ts` | Opens markets, validates close times, locks expired markets, and creates public snapshots. |
-| `src/core/portfolio.ts` | Marks account positions against current market prices. |
-| `src/core/settlement.ts` | Resolves markets with evidence and reliability thresholds. |
-| `src/core/solana.ts` | Builds chain-facing Fate Market instructions. |
-| `src/core/protocol.ts` | Composes the full protocol lifecycle into one stateful API. |
-| `src/data/seed-signals.ts` | Provides deterministic signal data for development and tests. |
+### Evidence-Based Resolution
 
-## Protocol Flow
+Markets require clear resolution conditions. When an event reaches its deadline or a decisive outcome is available, the platform resolves markets according to defined evidence and settlement rules.
 
-### 1. Signal Ingestion
+### $FATE Ecosystem Identity
 
-Signals can represent news, social activity, onchain movement, market data, or manual operator input. Each signal carries source, strength, tags, and supporting evidence.
+`$FATE` is the project ticker and ecosystem identity for Fate Market. It represents the platform brand, community, and future product layer around AI-assisted prediction markets.
 
-### 2. Event Discovery
+## Product Philosophy
 
-The event engine groups related signals, scores heat and confidence, and emits event candidates.
+Prediction markets are most powerful when they do three things well:
 
-### 3. AI Market Intelligence
+1. Define the future event clearly.
+2. Let users trade both sides of the outcome.
+3. Turn market prices into readable probabilities.
 
-The AI layer transforms a candidate into a binary market draft. The draft includes question wording, close time, resolution rules, probability, YES case, NO case, catalysts, and risk notes.
+Fate Market adds an AI layer on top of this structure so users do not only see a price, but also understand the reasoning, catalysts, evidence, and changing information behind that price.
 
-### 4. Market Opening
-
-The market factory validates the close time, creates a binary pool, assigns initial liquidity, and stores the market in protocol state.
-
-### 5. Trading
-
-Traders can buy YES or NO shares. Trades update pool liquidity, account positions, volume, trade count, and collected fees.
-
-### 6. Position Exit
-
-Before close, traders can sell YES or NO shares back into the pool to reduce exposure.
-
-### 7. Locking
-
-After close time, the market locks. New trades are rejected, and the market is ready for outcome resolution.
-
-### 8. Settlement
-
-Resolvers submit evidence and an outcome. The settlement layer supports YES, NO, and VOID, with evidence reliability checks for non-VOID outcomes.
-
-### 9. Redemption
-
-After resolution, accounts redeem winning shares or voided shares back into collateral.
-
-## Repository Structure
+## User Flow
 
 ```text
-.
-|-- assets/
-|   `-- brand/
-|       |-- fate-market-favicon.png
-|       `-- fate-market-logo.png
-|-- docs/
-|   |-- architecture.md
-|   |-- brand-assets.md
-|   `-- mvp-scope.md
-|-- public/
-|   |-- favicon.png
-|   `-- logo.png
-|-- src/
-|   |-- core/
-|   |   |-- ai.ts
-|   |   |-- brand.ts
-|   |   |-- events.ts
-|   |   |-- ledger.ts
-|   |   |-- markets.ts
-|   |   |-- portfolio.ts
-|   |   |-- pricing.ts
-|   |   |-- protocol.ts
-|   |   |-- settlement.ts
-|   |   |-- solana.ts
-|   |   |-- types.ts
-|   |   `-- utils.ts
-|   |-- data/
-|   |   `-- seed-signals.ts
-|   `-- index.ts
-|-- tests/
-|   `-- protocol.test.ts
-|-- LICENSE
-|-- README.md
-|-- package.json
-`-- tsconfig.json
+Discover event -> Read AI analysis -> Choose YES or NO -> Trade position -> Track probability -> Resolve market -> Settle outcome
 ```
 
-## Installation
+## Market Categories
 
-### Requirements
+Fate Market can support event markets across categories such as:
 
-- Node.js 20 or newer
-- npm 10 or newer
+- crypto and Solana ecosystem events
+- token launches and ecosystem milestones
+- market and macro catalysts
+- technology and AI developments
+- public events and internet culture
+- governance and protocol decisions
+- sports, entertainment, and social outcomes
 
-### Install Dependencies
+## Why Solana
 
-```bash
-npm install
-```
+Prediction markets need fast execution, low transaction costs, and transparent settlement. Solana is well suited for high-frequency market interaction, consumer-scale trading experiences, and real-time probability markets.
 
-### Build
+## Why AI
 
-```bash
-npm run build
-```
+The hardest part of prediction markets is not only trading. It is finding the right events, phrasing them clearly, explaining both sides, and updating the market narrative when new information appears.
 
-The compiled package is emitted to `dist`.
+Fate Market uses AI as a market intelligence layer for:
 
-## Configuration
+- event discovery
+- market drafting
+- probability context
+- catalyst tracking
+- YES / NO argument generation
+- evidence monitoring
+- user-facing explanations
 
-The MVP core is deterministic and does not require secrets to run. Downstream apps can provide environment variables for deployment and service adapters.
+## Public Repository Scope
 
-Recommended application variables:
+This public repository is maintained as the official Fate Market project profile and information page.
 
-```bash
-FATE_SITE_URL=https://www.fatemarket.fun
-FATE_SOLANA_NETWORK=mainnet-beta
-FATE_PROGRAM_ID=fate_market
-FATE_TREASURY_ACCOUNT=<treasury-account>
-FATE_RESOLVER_ACCOUNT=<resolver-account>
-```
-
-These variables are consumed by application adapters, indexers, or clients that wrap the protocol core.
-
-## Usage
-
-### Import the Protocol
-
-```ts
-import {
-  createFateMarketProtocol,
-  createMarketFromEvent,
-  exitPosition,
-  fundAccount,
-  getPortfolio,
-  ingestSignals,
-  listMarkets,
-  redeem,
-  seedSignals,
-  settle,
-  trade
-} from "fate-market";
-```
-
-### Run a Full Market Lifecycle
-
-```ts
-const state = createFateMarketProtocol();
-
-const [event] = ingestSignals(state, seedSignals);
-const market = createMarketFromEvent(state, event, "2026-05-31T00:00:00.000Z", {
-  initialLiquidity: 1000,
-  feeBps: 30
-});
-
-fundAccount(state, "trader-1", 500);
-
-const buy = trade(state, market.id, "trader-1", "YES", 100);
-exitPosition(state, market.id, "trader-1", "YES", buy.sharesOut / 4);
-
-const portfolio = getPortfolio(state, "trader-1");
-
-settle(state, market.id, "YES", "fate-oracle");
-const payout = redeem(state, market.id, "trader-1");
-
-console.log({ markets: listMarkets(state), portfolio, payout });
-```
-
-### Build Solana Instructions
-
-```ts
-import {
-  buildBuySharesInstruction,
-  buildOpenMarketInstruction,
-  createFateMarketProtocol,
-  createMarketFromEvent,
-  fundAccount,
-  ingestSignals,
-  seedSignals,
-  trade
-} from "fate-market";
-
-const state = createFateMarketProtocol();
-const [event] = ingestSignals(state, seedSignals);
-const market = createMarketFromEvent(state, event, "2026-05-31T00:00:00.000Z");
-
-fundAccount(state, "trader-1", 500);
-const quote = trade(state, market.id, "trader-1", "YES", 100);
-
-const openIx = buildOpenMarketInstruction(market, "treasury-account");
-const buyIx = buildBuySharesInstruction(market, "trader-1", "YES", quote);
-
-console.log(openIx, buyIx);
-```
-
-### Read Brand Metadata
-
-```ts
-import { fateMarketBrand } from "fate-market";
-
-console.log(fateMarketBrand.name);
-console.log(fateMarketBrand.assets.logo);
-```
-
-## Scripts
-
-| Command | Purpose |
-| --- | --- |
-| `npm test` | Runs deterministic protocol tests. |
-| `npm run typecheck` | Runs TypeScript validation without emitting files. |
-| `npm run build` | Compiles the TypeScript package to `dist`. |
-
-## Testing
-
-The test suite covers:
-
-- Bundled brand assets.
-- Event discovery and market opening.
-- YES buy flow and price movement.
-- Sell-side position exits.
-- Portfolio valuation.
-- Market close-time locking.
-- Invalid state rejection.
-- Evidence-based settlement and redemption.
-
-Run:
-
-```bash
-npm test
-```
-
-## Brand Assets
-
-| Resource | Value |
-| --- | --- |
-| Full name | Fate Market |
-| Ticker | `$FATE` |
-| Network | Solana |
-| Website | https://www.fatemarket.fun/ |
-| X / Twitter | https://x.com/Fate_Market |
-| GitHub Repository | https://github.com/knimestrom/FATE.git |
-
-| Asset | Path |
-| --- | --- |
-| Primary logo | `assets/brand/fate-market-logo.png` |
-| Favicon | `assets/brand/fate-market-favicon.png` |
-| Public logo | `public/logo.png` |
-| Public favicon | `public/favicon.png` |
-
-The same asset paths are exported by `fateMarketBrand`.
-
-## Project Progress
-
-### Completed
-
-- Protocol type system.
-- Event signal ingestion.
-- Event candidate discovery.
-- AI market intelligence generation.
-- Binary YES / NO market creation.
-- Buy-side and sell-side trading.
-- Collateral ledger and fee accounting.
-- Portfolio valuation.
-- Market close-time locking.
-- Evidence-based settlement.
-- Redemption after settlement.
-- Solana instruction builders.
-- Brand asset bundling.
-- Deterministic protocol tests.
-- TypeScript build output.
-
-### Active Focus
-
-- Provider adapters for live event feeds.
-- Solana program client wiring around exported instruction builders.
-- Frontend trading interface integration.
-- Persistent storage for markets, trades, accounts, and resolutions.
-- Resolver operations and evidence review workflow.
-
-## Recent Updates
-
-### 2026-04-30
-
-- Published the official Fate Market X channel across README project links, brand metadata, and repository documentation.
-- Added a changelog so protocol, brand, and integration updates can be tracked in a standard GitHub-friendly format.
-- Refined repository presentation around the active MVP workstreams: AI event intelligence, market lifecycle, Solana execution, and settlement operations.
-
-### 2026-04-29
-
-- Bundled the Fate Market logo and favicon into both package assets and public web aliases.
-- Expanded README coverage for architecture, module responsibilities, protocol flow, installation, configuration, usage, roadmap, FAQ, and brand assets.
-- Validated the full prediction-market lifecycle through deterministic protocol tests.
-
-### 2026-04-28
-
-- Finalized the first-principles MVP boundary around event discovery, YES / NO trading, locked-market settlement, redemption, and portfolio valuation.
-- Defined the Solana instruction boundary for open, buy, sell, resolve, and redeem actions.
-- Organized the protocol modules so frontend apps, indexers, and Solana clients can consume the same core package.
+The platform implementation, smart contract systems, trading infrastructure, market operations, and AI pipelines are proprietary and maintained privately.
 
 ## Roadmap
 
-### Phase 1: Protocol Core - April 2026
+### April 2026
 
-- Event candidates.
-- Market drafting.
-- Binary pricing.
-- Ledger accounting.
-- Trading, locking, settlement, and redemption.
+- Project identity and platform positioning
+- Public website launch
+- Prediction market product architecture
+- AI event market concept definition
+- Solana-native market direction
 
-### Phase 2: Trading App - May 2026
+### May 2026
 
-- Wallet connection.
-- Market list and detail views.
-- Trading ticket.
-- Portfolio page.
-- Resolution history.
-- Brand-complete public interface.
+- Public market interface expansion
+- AI market intelligence presentation
+- Market category system
+- Community and social channel growth
+- Early user feedback loop
 
-### Phase 3: Data and AI Adapters - June 2026
+### June 2026
 
-- News feed adapters.
-- Social signal adapters.
-- Onchain signal adapters.
-- Market data adapters.
-- AI scoring and explanation adapters.
+- Event discovery refinement
+- Market resolution workflow expansion
+- Portfolio and position experience
+- Solana wallet interaction planning
+- Data and evidence source improvements
 
-### Phase 4: Solana Execution - July 2026
+### July 2026 and Beyond
 
-- Program client.
-- Transaction assembly.
-- Treasury accounts.
-- Market vault accounts.
-- Resolver permissions.
-- Settlement and redemption transactions.
-
-### Phase 5: Operations - August 2026 and Beyond
-
-- Monitoring.
-- Market review tooling.
-- Risk controls.
-- Audit trail exports.
-- Public analytics.
-
-## Project Features
-
-### Product Features
-
-- Trade future event outcomes.
-- Read AI-generated YES and NO cases.
-- Price probability through market action.
-- Exit open positions before close.
-- Redeem settled positions.
-- Track portfolio value.
-
-### Protocol Features
-
-- Deterministic state transitions.
-- Fee accounting.
-- Close-time enforcement.
-- Evidence reliability checks.
-- Solana instruction boundary.
-- Public market snapshots.
-
-### Developer Features
-
-- Small TypeScript modules.
-- ESM exports.
-- Strict typing.
-- Deterministic tests.
-- Bundled brand assets.
-- Clear docs and examples.
+- Broader market coverage
+- Advanced AI market summaries
+- Community market requests
+- Public analytics and probability history
+- Expanded $FATE ecosystem utilities
 
 ## FAQ
 
 ### What is Fate Market?
 
-Fate Market is an AI event prediction market for Solana. It turns event signals into binary markets where users trade YES and NO outcome shares.
+Fate Market is an AI-native prediction market platform on Solana where users trade YES and NO outcomes around future events.
 
-### What does `$FATE` represent?
+### What does the market price mean?
 
-`$FATE` is the project ticker and brand shorthand for Fate Market.
+The market price represents the probability implied by trading activity. For example, if YES trades around 0.64, the market is expressing roughly a 64 percent probability that the event resolves YES.
 
-### Why YES and NO shares?
+### What does AI do on Fate Market?
 
-YES and NO shares make event probability tradable. If YES trades near 0.70, the market is pricing roughly a 70 percent chance of the event resolving YES.
+AI helps discover events, draft market questions, summarize arguments, track catalysts, explain probability changes, and organize evidence around market outcomes.
 
-### What does the AI layer do?
+### Why use YES and NO markets?
 
-The AI layer converts event candidates into market intelligence. It creates market wording, probability estimates, YES thesis, NO thesis, catalysts, and risk notes.
+YES and NO markets make future outcomes directly tradable. Users can take either side of an event and follow how probability changes over time.
 
-### How does pricing work?
+### Why is Fate Market built around Solana?
 
-The pricing module uses a binary liquidity pool. Buying YES increases the YES price, buying NO increases the NO price, and selling shares moves price in the opposite direction.
+Solana provides fast, low-cost infrastructure for consumer-scale market interaction and transparent settlement design.
 
-### How does settlement work?
+### Is the platform code open source?
 
-A resolver submits evidence and an outcome. Markets can resolve YES, NO, or VOID. Non-VOID outcomes require evidence reliability above the protocol threshold.
+No. This public repository is an official project information page. The prediction market implementation and operational systems are maintained privately.
 
-### Can users exit before settlement?
+## Contact
 
-Yes. Traders can sell YES or NO shares back into the pool while the market is open.
-
-### What happens after market close?
-
-The market locks. New trades are rejected, and the market waits for resolution evidence.
-
-### How are Solana actions represented?
-
-The Solana module builds chain-facing Fate Market instructions for open, buy, sell, resolve, and redeem actions.
-
-### Where are the logo files?
-
-The primary logo is stored at `assets/brand/fate-market-logo.png`, and the public web alias is stored at `public/logo.png`.
-
-## Security Notes
-
-- Account collateral is checked before buys.
-- Share balances are checked before sells.
-- Trades are rejected after close-time locking.
-- Settlement requires evidence.
-- Low-reliability evidence is rejected for YES and NO outcomes.
-
-## License
-
-This project is released under the [MIT License](./LICENSE).
+- Website: https://www.fatemarket.fun/
+- X / Twitter: https://x.com/Fate_Market
