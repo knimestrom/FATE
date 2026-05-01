@@ -1,8 +1,16 @@
-# Fate Market
+<p align="center">
+  <img src="https://www.fatemarket.fun/logo.png" alt="Fate Market logo" width="180" />
+</p>
 
-`$FATE`
+<h1 align="center">Fate Market</h1>
 
-Trade the future. Price reality on Solana.
+<p align="center">
+  <strong>$FATE</strong>
+</p>
+
+<p align="center">
+  Trade the future. Price reality on Solana.
+</p>
 
 Fate Market is an AI-native prediction market platform on Solana. It turns future events into tradable probability markets where users can take YES or NO positions, read AI-assisted market intelligence, and follow how market prices express live expectations about reality.
 
