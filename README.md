@@ -15,6 +15,7 @@
 <p align="center">
   <a href="https://www.fatemarket.fun/">Website</a> ·
   <a href="https://x.com/Fate_Market">X / Twitter</a> ·
+  <a href="https://t.me/safeguard">Telegram</a> ·
   <a href="https://github.com/knimestrom/FATE">GitHub</a>
 </p>
 
@@ -47,6 +48,7 @@ Together, they create a prediction market experience that is fast, readable, tra
 | --- | --- |
 | Website | https://www.fatemarket.fun/ |
 | X / Twitter | https://x.com/Fate_Market |
+| Telegram | https://t.me/safeguard |
 | GitHub Repository | https://github.com/knimestrom/FATE |
 | Network | Solana |
 | Ticker | `$FATE` |
@@ -301,4 +303,5 @@ Markets resolve according to their stated resolution conditions, accepted eviden
 
 - Website: https://www.fatemarket.fun/
 - X / Twitter: https://x.com/Fate_Market
+- Telegram: https://t.me/safeguard
 - GitHub: https://github.com/knimestrom/FATE
