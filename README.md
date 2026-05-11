@@ -9,10 +9,37 @@
 </p>
 
 <p align="center">
-  Trade the future. Price reality on Solana.
+  <strong>Trade the future. Price reality on Solana.</strong>
 </p>
 
-Fate Market is an AI-native prediction market platform on Solana. It turns future events into tradable probability markets where users can take YES or NO positions, read AI-assisted market intelligence, and follow how market prices express live expectations about reality.
+<p align="center">
+  <a href="https://www.fatemarket.fun/">Website</a> ·
+  <a href="https://x.com/Fate_Market">X / Twitter</a> ·
+  <a href="https://github.com/knimestrom/FATE">GitHub</a>
+</p>
+
+---
+
+## Overview
+
+Fate Market is an AI-native prediction market platform on Solana. It turns future events into tradable probability markets where users can take YES or NO positions, follow live probability signals, and use AI-assisted market intelligence to understand both sides of an outcome.
+
+The platform is built for a world where information moves faster than traditional markets can explain. Fate Market organizes event signals, public catalysts, market expectations, and resolution evidence into a structured prediction experience.
+
+At its core, Fate Market answers one question:
+
+> What does the market believe will happen next?
+
+## Core Thesis
+
+Prediction markets are powerful because they convert uncertainty into price.
+
+Fate Market extends that idea with two native advantages:
+
+1. AI turns fast-moving information into structured market intelligence.
+2. Solana provides a high-speed environment for market activity, custody, settlement, and redemption flows.
+
+Together, they create a prediction market experience that is fast, readable, transparent, and designed for internet-native events.
 
 ## Official Links
 
@@ -20,107 +47,189 @@ Fate Market is an AI-native prediction market platform on Solana. It turns futur
 | --- | --- |
 | Website | https://www.fatemarket.fun/ |
 | X / Twitter | https://x.com/Fate_Market |
-| GitHub Repository | https://github.com/knimestrom/FATE.git |
+| GitHub Repository | https://github.com/knimestrom/FATE |
+| Network | Solana |
+| Ticker | `$FATE` |
 
-## What Fate Market Does
+## Platform Modules
 
-Fate Market is built around a simple idea: the future should have a market price.
+### Event Discovery
 
-Instead of treating news, rumors, catalysts, and public expectations as disconnected information streams, Fate Market organizes them into event markets. Each market asks a clear binary question, such as whether a specific future event will happen by a defined deadline. Traders buy YES or NO outcome exposure, and the market price becomes a live probability signal.
+Fate Market identifies market-worthy events from fast-moving information streams. These events can come from crypto, technology, finance, culture, public affairs, sports, and internet-native narratives.
 
-AI helps users understand the market. Solana provides the settlement environment. The result is a prediction platform designed for speed, transparency, and probability-based decision making.
-
-## Core Platform Features
-
-### AI Event Discovery
-
-Fate Market monitors fast-moving information streams and identifies events that are suitable for prediction markets. The AI layer helps transform raw signals into market candidates with clear questions, categories, deadlines, and resolution logic.
-
-### YES / NO Prediction Markets
-
-Each market is structured around two mutually exclusive outcomes: YES and NO. Users can express a view by taking either side, and market prices communicate the probability currently implied by trading activity.
+The event layer is designed to prioritize questions that are specific, time-bound, and resolvable.
 
 ### AI Market Intelligence
 
-Fate Market presents structured market intelligence around each event, including:
+AI is used as a market intelligence layer. It helps transform raw information into clear market context, including:
 
-- market summary
-- YES-side thesis
-- NO-side thesis
+- event summaries
+- YES-side reasoning
+- NO-side reasoning
 - key catalysts
 - risk notes
 - probability context
-- information updates
+- market updates
+- evidence framing
 
-The goal is to make every market easier to understand before users take a position.
+The goal is to make every market easier to evaluate before a user takes a position.
 
-### Solana-Native Market Layer
+### YES / NO Prediction Markets
 
-Fate Market is designed for Solana-native trading, custody, and settlement flows. Solana gives the platform a high-speed environment for prediction markets, transparent market activity, and efficient user interaction.
+Each Fate Market market is structured around a binary outcome:
 
-### Position and Portfolio Experience
+- YES if the event happens under the defined resolution rules
+- NO if the event does not happen under the defined resolution rules
 
-Users can track open positions, market exposure, estimated probability, and settlement status across their prediction market activity.
+Users can take either side. As positions are traded, the market price becomes a live probability signal.
 
-### Evidence-Based Resolution
+### Probability Pricing
 
-Markets require clear resolution conditions. When an event reaches its deadline or a decisive outcome is available, the platform resolves markets according to defined evidence and settlement rules.
+In a prediction market, price is not only a number. It is a probability signal.
 
-### $FATE Ecosystem Identity
+If YES is priced near 0.70, the market is expressing roughly a 70 percent probability that the event resolves YES. Fate Market is designed to make that probability readable, trackable, and explainable.
 
-`$FATE` is the project ticker and ecosystem identity for Fate Market. It represents the platform brand, community, and future product layer around AI-assisted prediction markets.
+### Market Detail Pages
 
-## Product Philosophy
+A complete market experience should give users more than a title and a trade button. Fate Market market pages are designed around:
 
-Prediction markets are most powerful when they do three things well:
+- market question
+- category
+- close time
+- implied probability
+- YES and NO cases
+- latest information updates
+- accepted resolution logic
+- settlement status
+- position and portfolio context
 
-1. Define the future event clearly.
-2. Let users trade both sides of the outcome.
-3. Turn market prices into readable probabilities.
+### Portfolio Experience
 
-Fate Market adds an AI layer on top of this structure so users do not only see a price, but also understand the reasoning, catalysts, evidence, and changing information behind that price.
+Users need to understand their exposure across active markets. Fate Market is designed to surface open positions, outcome exposure, market movement, and settlement status in a portfolio-first experience.
 
-## User Flow
+### Resolution Framework
+
+Prediction markets only work when resolution is clear. Fate Market markets are designed to define:
+
+- the exact event question
+- the market close time
+- YES conditions
+- NO conditions
+- VOID conditions when applicable
+- accepted evidence sources
+- resolution review process
+- final settlement state
+
+### Solana Settlement Layer
+
+Fate Market is built around Solana-native market interaction. Solana is well suited for prediction markets because it supports fast transactions, low fees, consumer-scale trading flows, and transparent settlement references.
+
+The Solana layer supports the platform direction around custody, trading, settlement, redemption, and market transparency.
+
+## Market Lifecycle
+
+Fate Market follows a structured market lifecycle:
 
 ```text
-Discover event -> Read AI analysis -> Choose YES or NO -> Trade position -> Track probability -> Resolve market -> Settle outcome
+Event Signal
+  -> AI Market Draft
+  -> YES / NO Market
+  -> Live Trading
+  -> Market Close
+  -> Evidence Review
+  -> Settlement
+  -> Redemption
 ```
+
+### 1. Event Signal
+
+A potential future event is identified from market, social, on-chain, news, or manual research signals.
+
+### 2. AI Market Draft
+
+The event is converted into a structured market draft with a clear question, category, close time, resolution framing, and initial market intelligence.
+
+### 3. YES / NO Market
+
+The event becomes a tradable market where users can take either side of the outcome.
+
+### 4. Live Trading
+
+Market activity updates the implied probability. Users can track the changing price as new information appears.
+
+### 5. Market Close
+
+The market stops accepting new positions after the defined close time or event boundary.
+
+### 6. Evidence Review
+
+Accepted evidence sources and event facts are reviewed against the market's resolution rules.
+
+### 7. Settlement
+
+The market resolves to YES, NO, or VOID according to the defined conditions.
+
+### 8. Redemption
+
+Users redeem settled positions according to the final outcome.
 
 ## Market Categories
 
-Fate Market can support event markets across categories such as:
+Fate Market is designed to support prediction markets across high-signal categories, including:
 
-- crypto and Solana ecosystem events
-- token launches and ecosystem milestones
-- market and macro catalysts
-- technology and AI developments
-- public events and internet culture
-- governance and protocol decisions
-- sports, entertainment, and social outcomes
+- crypto markets
+- Solana ecosystem events
+- token launches and milestones
+- protocol and governance decisions
+- AI and technology events
+- macro and financial catalysts
+- sports and entertainment
+- internet culture and public narratives
 
-## Why Solana
+## AI-Native Differentiation
 
-Prediction markets need fast execution, low transaction costs, and transparent settlement. Solana is well suited for high-frequency market interaction, consumer-scale trading experiences, and real-time probability markets.
+Fate Market is not only a trading venue. It is designed as an intelligence layer for future events.
 
-## Why AI
+AI helps users answer:
 
-The hardest part of prediction markets is not only trading. It is finding the right events, phrasing them clearly, explaining both sides, and updating the market narrative when new information appears.
+- Why does this market exist?
+- What would make YES more likely?
+- What would make NO more likely?
+- What changed recently?
+- Which evidence matters?
+- Why did the probability move?
 
-Fate Market uses AI as a market intelligence layer for:
+This makes the platform useful for both active traders and users who want to understand the market's view of reality.
 
-- event discovery
-- market drafting
-- probability context
-- catalyst tracking
-- YES / NO argument generation
-- evidence monitoring
-- user-facing explanations
+## Transparency Model
+
+Fate Market is designed around public market readability and settlement clarity.
+
+The platform direction includes:
+
+- public market pages
+- probability history
+- market status tracking
+- settlement evidence
+- resolution notes
+- Solana transaction references where applicable
+- public platform updates
+
+The goal is to make every market understandable from creation to settlement.
+
+## $FATE
+
+`$FATE` is the public ticker and ecosystem identity for Fate Market.
+
+It represents the platform brand, community layer, and future product direction around AI-assisted prediction markets on Solana.
 
 ## Public Repository Scope
 
-This public repository is maintained as the official Fate Market project profile and information page.
+This repository serves as the official public profile for Fate Market.
 
-The platform implementation, smart contract systems, trading infrastructure, market operations, and AI pipelines are proprietary and maintained privately.
+It is maintained to provide clear project information, platform positioning, official links, product architecture, market lifecycle documentation, roadmap context, and public-facing platform materials.
+
+Fate Market's production trading systems, settlement operations, risk controls, market operations, smart contract integrations, and AI signal pipelines are maintained through dedicated private infrastructure. This structure protects the integrity, reliability, and operational security of the platform while keeping public information easy to access.
 
 ## Roadmap
 
@@ -131,30 +240,32 @@ The platform implementation, smart contract systems, trading infrastructure, mar
 - Prediction market product architecture
 - AI event market concept definition
 - Solana-native market direction
+- Official public repository profile
 
 ### May 2026
 
-- Public market interface expansion
+- Market discovery experience expansion
 - AI market intelligence presentation
-- Market category system
-- Community and social channel growth
-- Early user feedback loop
+- YES / NO market detail refinement
+- Portfolio and position experience planning
+- Public channel and community growth
+- Documentation alignment across website and repository
 
 ### June 2026
 
 - Event discovery refinement
-- Market resolution workflow expansion
-- Portfolio and position experience
+- Resolution framework expansion
+- Probability history and market movement context
 - Solana wallet interaction planning
-- Data and evidence source improvements
+- Evidence source and settlement workflow improvements
 
 ### July 2026 and Beyond
 
-- Broader market coverage
+- Broader event category coverage
 - Advanced AI market summaries
-- Community market requests
-- Public analytics and probability history
-- Expanded $FATE ecosystem utilities
+- Community market request flows
+- Public transparency and analytics surfaces
+- Expanded `$FATE` ecosystem utilities
 
 ## FAQ
 
@@ -162,27 +273,32 @@ The platform implementation, smart contract systems, trading infrastructure, mar
 
 Fate Market is an AI-native prediction market platform on Solana where users trade YES and NO outcomes around future events.
 
-### What does the market price mean?
+### What does the price represent?
 
-The market price represents the probability implied by trading activity. For example, if YES trades around 0.64, the market is expressing roughly a 64 percent probability that the event resolves YES.
+The price represents the probability implied by market activity. For example, a YES price near 0.65 expresses roughly a 65 percent market-implied probability of the event resolving YES.
 
-### What does AI do on Fate Market?
+### What does AI do?
 
-AI helps discover events, draft market questions, summarize arguments, track catalysts, explain probability changes, and organize evidence around market outcomes.
+AI helps discover events, structure market questions, summarize YES and NO cases, track catalysts, explain market movement, and support evidence-aware market context.
 
-### Why use YES and NO markets?
+### Why Solana?
 
-YES and NO markets make future outcomes directly tradable. Users can take either side of an event and follow how probability changes over time.
+Prediction markets benefit from fast settlement, low fees, transparent transaction records, and consumer-scale trading flows. Solana is well suited for that design.
 
-### Why is Fate Market built around Solana?
+### What makes a good Fate Market event?
 
-Solana provides fast, low-cost infrastructure for consumer-scale market interaction and transparent settlement design.
+A strong event market is specific, time-bound, publicly understandable, and resolvable through defined evidence.
 
-### Is the platform code open source?
+### How are markets resolved?
 
-No. This public repository is an official project information page. The prediction market implementation and operational systems are maintained privately.
+Markets resolve according to their stated resolution conditions, accepted evidence, and final event outcome. A market can resolve YES, NO, or VOID when applicable.
+
+### What is `$FATE`?
+
+`$FATE` is the public ticker and ecosystem identity for Fate Market.
 
 ## Contact
 
 - Website: https://www.fatemarket.fun/
 - X / Twitter: https://x.com/Fate_Market
+- GitHub: https://github.com/knimestrom/FATE
